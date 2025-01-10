@@ -18,7 +18,7 @@ namespace POSSystem.Persistance.Repositories
             _context = context;
         }
 
-        public async Task<bool> AddProductsToOrder(int orderId, List<int> productId)
+        public async Task<bool> AddProductsToOrder(Guid orderId, List<Guid> productId)
         {
             var order = await GetByIdAsync(orderId);
             if (order == null) return false;
@@ -27,9 +27,9 @@ namespace POSSystem.Persistance.Repositories
 
             foreach (var product in productList)
             {
-                if (!order.OrderPro.Any(op => op.ProductId == product.ProductId))
+                if (!order.OrderInventory.Any(op => op.ProductId == product.ProductId))
                 {
-                    order.OrderPro.Add(new OrderProductEntity
+                    order.OrderInventory.Add(new OrderInventory
                     {
                         OrderId = orderId,
                         ProductId = product.ProductId,
@@ -43,7 +43,7 @@ namespace POSSystem.Persistance.Repositories
 
 
 
-        public async Task<IEnumerable<OrderEntity>> GetOrderByProductId(int productId)
+        public async Task<IEnumerable<OrderEntity>> GetOrderByProductId(Guid productId)
         {
             return await _context.OrderProducts
                 .Where(op => op.ProductId == productId)
@@ -52,7 +52,7 @@ namespace POSSystem.Persistance.Repositories
         }
 
 
-        public async Task<bool> UpdateOrderStatus(int orderId, int status)
+        public async Task<bool> UpdateOrderStatus(Guid orderId, string status)
         {
             var order = await _context.Orders.FindAsync(orderId);
             if (order == null)

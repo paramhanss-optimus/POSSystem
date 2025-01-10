@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem", "POSSystem\POSSystem.csproj", "{02DDBCB4-B6AE-463F-9411-AFF144248C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POSSystem", "POSSystem\POSSystem.csproj", "{02DDBCB4-B6AE-463F-9411-AFF144248C27}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70FCCB03-B3A0-4F51-8F82-F69BE0464DA7}"
 EndProject
@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B91E5F68-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{041DE505-6FF4-4FA6-9DAA-10387AE07CBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.Application", "POSSystem.Application\POSSystem.Application.csproj", "{9D8AF795-7BC8-40D9-A273-D4152A4DA5BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POSSystem.Application", "POSSystem.Application\POSSystem.Application.csproj", "{9D8AF795-7BC8-40D9-A273-D4152A4DA5BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.Domain", "POSSystem.Domain\POSSystem.Domain.csproj", "{C1753646-3672-4E6F-99C3-5AC28709D14E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POSSystem.Domain", "POSSystem.Domain\POSSystem.Domain.csproj", "{C1753646-3672-4E6F-99C3-5AC28709D14E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.Infrastructure", "POSSystem.Infrastructure\POSSystem.Infrastructure.csproj", "{B6F1FB1A-CC5A-4A7E-9E2A-88A80D0AC10F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POSSystem.Infrastructure", "POSSystem.Infrastructure\POSSystem.Infrastructure.csproj", "{B6F1FB1A-CC5A-4A7E-9E2A-88A80D0AC10F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem.Persistance", "POSSystem.Persistance\POSSystem.Persistance.csproj", "{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POSSystem.Persistance", "POSSystem.Persistance\POSSystem.Persistance.csproj", "{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Utilities", "POS.Utilities\POS.Utilities.csproj", "{A1F21FC1-47B7-4222-83D1-75700295B2AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F21FC1-47B7-4222-83D1-75700295B2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F21FC1-47B7-4222-83D1-75700295B2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F21FC1-47B7-4222-83D1-75700295B2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F21FC1-47B7-4222-83D1-75700295B2AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{C1753646-3672-4E6F-99C3-5AC28709D14E} = {B91E5F68-F157-4C3B-86CC-DD24C95AF921}
 		{B6F1FB1A-CC5A-4A7E-9E2A-88A80D0AC10F} = {041DE505-6FF4-4FA6-9DAA-10387AE07CBC}
 		{2B81AC45-65CF-4D2C-ACA5-1D06B4164CE1} = {041DE505-6FF4-4FA6-9DAA-10387AE07CBC}
+		{A1F21FC1-47B7-4222-83D1-75700295B2AF} = {041DE505-6FF4-4FA6-9DAA-10387AE07CBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7EF575E-2820-470F-A944-0C83C4B5DDE4}

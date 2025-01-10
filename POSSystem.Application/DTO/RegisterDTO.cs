@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace POSSystem.Application.DTO
 {
-    public class InventoryDTO
+    public class RegisterDTO
     {
-        public string ProductName { get; set; }
-
-        public int ProductPrice { get; set; }
-
-        public int ProductStock { get; set; }
+       
+        public string Password { get; set; }
+        public string Email { get; set; }
 
     }
 }

@@ -10,18 +10,18 @@ using POSSystem.Domain.Entities;
 
 namespace POSSystem.Persistance.Configurations
 {
-    public class OrderProductConfiguration : IEntityTypeConfiguration<OrderProductEntity>
+    public class OrderProductConfiguration : IEntityTypeConfiguration<OrderInventory>
     {
-        public void Configure(EntityTypeBuilder<OrderProductEntity> builder)
+        public void Configure(EntityTypeBuilder<OrderInventory> builder)
         {
 
             builder.HasKey(r => new { r.OrderId, r.ProductId });
             builder.HasOne(r => r.Order)
-             .WithMany(r => r.OrderPro)
+             .WithMany(r => r.OrderInventory)
              .HasForeignKey(r => r.OrderId);
 
             builder.HasOne(r => r.Product)
-             .WithMany(r => r.ProductOr)
+             .WithMany(r => r.InventoryOrder)
              .HasForeignKey(r => r.ProductId);
 
             builder.Property(r => r.Quantity)

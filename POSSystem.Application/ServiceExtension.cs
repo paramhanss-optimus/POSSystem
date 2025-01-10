@@ -22,6 +22,7 @@ namespace POSSystem.Application
                 services.AddAutoMapper(typeof(InventoryMapping));
                 services.AddAutoMapper(typeof(OrderMapping));
                 services.AddAutoMapper(typeof(CustomerMApping));
+                services.AddAutoMapper(typeof(UserMapping));
 
 
             RegisterGenericHandlers(services);

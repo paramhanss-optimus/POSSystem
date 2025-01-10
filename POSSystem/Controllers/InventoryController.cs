@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using POSSystem.Application.DTO;
 using POSSystem.Application.Features.Commands.Generic;
@@ -11,6 +12,8 @@ namespace POSSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class InventoryController : ControllerBase
     {
         private readonly ISender _sender;
@@ -43,7 +46,7 @@ namespace POSSystem.Controllers
         }
 
         [HttpDelete("{prodid:int}")]
-        public async Task<IActionResult> DeleteProduct([FromRoute] int prodid)
+        public async Task<IActionResult> DeleteProduct([FromRoute] Guid prodid)
         {
             var result = await _sender.Send(new DeleteAsyncCommand<InventoryEntity>(prodid));
             if (!result)
@@ -54,8 +57,8 @@ namespace POSSystem.Controllers
         }
 
 
-        [HttpPut("{prodId:int}")]
-        public async Task<IActionResult> UpdateCustomer([FromRoute] int prodId, [FromBody] InventoryDTO ord, CancellationToken ct)
+        [HttpPut("{prodId:Guid}")]
+        public async Task<IActionResult> UpdateCustomer([FromRoute] Guid prodId, [FromBody] InventoryDTO ord, CancellationToken ct)
         {
             var prodEntity = _mapper.Map<InventoryEntity>(ord);
             prodEntity.ProductId = prodId;

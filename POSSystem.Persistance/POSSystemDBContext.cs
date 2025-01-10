@@ -24,12 +24,8 @@ namespace POSSystem.Persistance
 
         public DbSet<UserEntity> Users { get; set; }
 
-        public DbSet<RoleEntity> Roles { get; set; }
-
         public DbSet<ReportEntity> Reports { get; set; }
-        public DbSet<PermissionEntity> Permissions { get; set; }
-
-        public DbSet<OrderProductEntity> OrderProducts { get; set; }
+        public DbSet<OrderInventory> OrderProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,10 +35,13 @@ namespace POSSystem.Persistance
             modelBuilder.ApplyConfiguration(new InventoryEntityConfiguration());
             modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new RoleEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ReportEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new PermissionEntityConfiguration());
             modelBuilder.ApplyConfiguration(new OrderProductConfiguration());
+
+            //modelBuilder.Entity<UserEntity>().HasData(
+            //    new UserEntity  {Email = "admin@gmail.com", Password = "admin", Role = "admin"},
+            //    new UserEntity { Email = "cashier@gmail.com", Password = "cashier", Role = "cashier" }
+            //);
 
         }
 

@@ -1,16 +1,18 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using POSSystem.Application.DTO;
 using POSSystem.Application.Features.Commands.Generic;
 using POSSystem.Application.Features.Queries.Generic;
-using POSSystem.Domain.Entities;
 using POSSystem.Domain.Entities;
 
 namespace POSSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class CustomerController : ControllerBase
     {
         private readonly ISender _sender;
@@ -31,6 +33,7 @@ namespace POSSystem.Controllers
         }
 
         [HttpPost]
+
         public async Task<IActionResult> CraeteCustomer([FromBody] CustomerDTO inventoryDTO)
         {
             var entity = _mapper.Map<CustomerEntity>(inventoryDTO);
@@ -44,7 +47,8 @@ namespace POSSystem.Controllers
 
 
         [HttpDelete("{custid:int}")]
-        public async Task<IActionResult> DeleteCustomer([FromRoute] int custid, CancellationToken ct)
+
+        public async Task<IActionResult> DeleteCustomer([FromRoute] Guid custid, CancellationToken ct)
         {
             var result = await _sender.Send(new DeleteAsyncCommand<CustomerEntity>(custid), ct);
             if (result == false)
@@ -57,8 +61,9 @@ namespace POSSystem.Controllers
 
 
 
-        [HttpPut("{custid:int}")]
-        public async Task<IActionResult> UpdateCustomer([FromRoute] int custId, [FromBody] CustomerDTO ord, CancellationToken ct)
+        [HttpPut("{custid:Guid}")]
+
+        public async Task<IActionResult> UpdateCustomer([FromRoute] Guid custId, [FromBody] CustomerDTO ord, CancellationToken ct)
         {
             var custEntity = _mapper.Map<CustomerEntity>(ord);
             custEntity.CustomerId = custId;

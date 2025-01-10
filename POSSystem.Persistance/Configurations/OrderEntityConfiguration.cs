@@ -17,9 +17,7 @@ namespace POSSystem.Persistance.Configurations
             builder.Property(r => r.OrderDate)
                    .IsRequired();
 
-            builder.Property(r => r.OrderTotal)
-                .IsRequired();
-
+          
             builder.Property(r => r.OrderStatus)
                 .IsRequired();
 

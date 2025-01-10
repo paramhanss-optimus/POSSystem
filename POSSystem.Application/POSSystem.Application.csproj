@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\POS.Utilities\POS.Utilities.csproj" />
     <ProjectReference Include="..\POSSystem.Domain\POSSystem.Domain.csproj" />
   </ItemGroup>
 

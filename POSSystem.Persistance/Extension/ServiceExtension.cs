@@ -15,11 +15,12 @@ namespace POSSystem.Persistance.Extension
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services)
         {
-            services.AddDbContext<POSSystemDBContext>(option => option.UseSqlServer("Server=CPC-param-7Q3RT;Database=POSSystemDB2;Trusted_Connection=True;TrustServerCertificate=true;")
+            services.AddDbContext<POSSystemDBContext>(option => option.UseSqlServer("Server=CPC-param-7Q3RT;Database=POSSystemDB4;Trusted_Connection=True;TrustServerCertificate=true;")
             .UseLazyLoadingProxies());
 
             services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IOrderRepo), typeof(OrderRepository));
+            services.AddScoped(typeof(IAuth), typeof(USerService));
             return services;
         }
     }

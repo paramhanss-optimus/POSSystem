@@ -8,13 +8,14 @@ namespace POSSystem.Domain.Entities
 {
     public class InventoryEntity
     {
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         public string ProductName { get; set; }
 
         public int ProductStock { get; set; }
+        int ProductPrice { get; set; }
 
-        public virtual ICollection<OrderProductEntity> ProductOr { get; set; }
+        public virtual ICollection<OrderInventory>? InventoryOrder { get; set; }
 
 
     }

@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using POSSystem.Application.DTO;
 using POSSystem.Application.Features.Commands.Generic;
@@ -12,6 +13,8 @@ namespace POSSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class OrderController : ControllerBase
     {
         private readonly ISender _sender;
@@ -44,7 +47,7 @@ namespace POSSystem.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(Guid id)
         {
             var result = await _sender.Send(new DeleteAsyncCommand<OrderEntity>(id));
             if (!result)
@@ -56,7 +59,7 @@ namespace POSSystem.Controllers
 
 
         [HttpPost("AddProductsToOrder")]
-        public async Task<IActionResult> AddProductsToOrder([FromRoute]int orderId, [FromBody] List<int> productIds)
+        public async Task<IActionResult> AddProductsToOrder([FromRoute]Guid orderId, [FromBody] List<Guid> productIds)
         {
             var result = await _sender.Send(new AddProductByOrderIdCommand(orderId, productIds));
             if (!result)
@@ -66,8 +69,8 @@ namespace POSSystem.Controllers
             return Ok("Products added to the order successfully");
         }
 
-        [HttpPut("{custid:int}")]
-        public async Task<IActionResult> UpdateCustomer([FromRoute] int orderId, [FromBody] OrderDTO ord, CancellationToken ct)
+        [HttpPut("{custid:Guid}")]
+        public async Task<IActionResult> UpdateCustomer([FromRoute] Guid orderId, [FromBody] OrderDTO ord, CancellationToken ct)
         {
             var orderEntity = _mapper.Map<OrderEntity>(ord);
             orderEntity.OrderId = orderId;

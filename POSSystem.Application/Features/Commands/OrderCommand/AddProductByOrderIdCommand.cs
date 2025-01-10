@@ -9,11 +9,11 @@ namespace POSSystem.Application.Features.Commands.OrderCommand
 {
     public class AddProductByOrderIdCommand : IRequest<bool>
     {
-        public int OrderId;
-        public List<int>? productIds;
+        public Guid OrderId;
+        public List<Guid>? productIds;
        
 
-        public AddProductByOrderIdCommand(int orderId, List<int>? prodIds)
+        public AddProductByOrderIdCommand(Guid orderId, List<Guid>? prodIds)
         {
             OrderId = orderId;
             productIds = prodIds;

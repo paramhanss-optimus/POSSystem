@@ -8,7 +8,7 @@ namespace POSSystem.Domain.Interfaces
 {
     public interface IInventoryRepo
     {
-       Task<bool> AddOrderToProduct(int productId, int quantity, List<int> orderId);
+       Task<bool> AddOrderToProduct(Guid productId, Guid quantity, List<Guid> orderId);
 
     }
 }

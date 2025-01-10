@@ -9,8 +9,8 @@ namespace POSSystem.Application.Features.Commands.Generic
 {
     public class DeleteAsyncCommand<T> : IRequest<bool> where T : class
     {
-        public int Id;
-        public DeleteAsyncCommand(int id)
+        public Guid Id;
+        public DeleteAsyncCommand(Guid id)
         {
             Id = id;
         }

@@ -9,9 +9,9 @@ namespace POSSystem.Domain.Interfaces
 {
     public interface IOrderRepo
     {
-        Task<bool> AddProductsToOrder (int orderId, List<int> productId);
-        Task<bool> UpdateOrderStatus(int orderId, int status);
-        Task<IEnumerable<OrderEntity>> GetOrderByProductId(int productId);
+        Task<bool> AddProductsToOrder (Guid orderId, List<Guid> productId);
+        Task<bool> UpdateOrderStatus(Guid orderId, string status);
+        Task<IEnumerable<OrderEntity>> GetOrderByProductId(Guid productId);
 
     }
 }

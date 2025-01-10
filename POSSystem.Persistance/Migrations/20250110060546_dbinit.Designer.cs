@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POSSystem.Persistance;
 
@@ -11,9 +12,11 @@ using POSSystem.Persistance;
 namespace POSSystem.Persistance.Migrations
 {
     [DbContext(typeof(POSSystemDBContext))]
-    partial class POSSystemDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250110060546_dbinit")]
+    partial class dbinit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -9,7 +9,7 @@ namespace POSSystem.Domain.Entities
 {
     public class CustomerEntity
     {
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
         public string CustomerName { get; set; }
        
         public virtual UserEntity? User { get; set; }

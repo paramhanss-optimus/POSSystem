@@ -9,10 +9,10 @@ namespace POSSystem.Application.Features.Commands.OrderCommand
 {
     public class UpdateOrderStatusCommand : IRequest<bool>
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
         public string NewStatus { get; set; }
 
-        public UpdateOrderStatusCommand(int orderId, string newStatus)
+        public UpdateOrderStatusCommand(Guid orderId, string newStatus)
         {
             OrderId = orderId;
             NewStatus = newStatus;
